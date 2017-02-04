@@ -1,0 +1,17 @@
+title: Harekaze repository
+permalink: none
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      title: Index Of
+      layout: directoryindex
+      permalink: /:path/index.html
+
+exclude: ["CNAME", "README.md", "repo-icon.png"]
+
+# Options
+enable_filesize: true
+filesize_yaml: _data/filesize.yaml

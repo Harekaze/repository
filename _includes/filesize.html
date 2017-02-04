@@ -1,0 +1,13 @@
+{% assign suffixes = ",K,M,G,T" | split: "," %}
+{% assign base = 1 %}
+{% assign limit = 10 | times: 1024 %}
+{% for suffix in suffixes %}
+    {% if include.param > limit %}
+        {% assign base = base | times: 1024 %}
+        {% assign limit = limit | times: 1024 %}
+        {% continue %}
+    {% endif %}
+    {% assign humanized_size = include.param | divided_by: base | append: suffix %}
+    {{ humanized_size }}
+    {% break %}
+{% endfor %}

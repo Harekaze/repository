@@ -1,0 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+<style>body {visibility: hidden;}</style>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL <span id="path"></span> was not found on this server.</p>
+<script>
+    document.getElementById('path').innerHTML=window.location.pathname;
+	document.body.style.visibility="visible";
+</script>
+<noscript><style>body {visibility: visible;}</style></noscript>
+</body></html>

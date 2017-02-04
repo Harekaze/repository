@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Index of {{ page.dir | split: "/" | join: "/" | default: "/"}}</title>
+</head>
+<body>
+    <h1>Index of {{ page.dir | split: "/" | join: "/" | default: "/"}}</h1>
+    {{ content }}
+    <table>
+        <tr>
+            <th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th>
+            <th>Name</th>
+            <th>Last modified</th>
+            {% if site.enable_filesize %}<th>Size</th>{% endif %}
+        </tr>
+        <tr><th colspan="{% if site.enable_filesize %}4{% else %}3{% endif %}"><hr /></th></tr>
+        {% unless page.dir == "/" %}
+        <tr>
+            <td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td>
+            <td><a href="..">Parent Directory</a></td>
+            <td>&nbsp;</td>
+            {% if site.enable_filesize %}<td align="right"> - </td>{% endif %}
+        </tr>
+        {% endunless %}
+        {% assign dirs = "" | split: "" %}
+        {% assign files = "" | split: "" %}
+        {% for index in site.html_pages %}
+            {% assign parentdir = index.dir | split: "/" | pop | join: "/" | append: "/" %}
+            {% if parentdir == page.dir %}
+                {% assign subdir = index.dir | replace: page.dir %}
+                {% unless subdir == "" %}
+                {% assign dirs = dirs | push: subdir %}
+                {% endunless %}
+            {% endif %}
+        {% endfor %}
+        {% for file in site.static_files %}
+            {% assign filedir = file.path | replace: file.name %}
+            {% assign parentdir = filedir | split: "/" | pop | join: "/" | append: "/" %}
+            {% if page.dir == filedir %}
+                {% assign files = files | push: file %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign dirs = dirs | uniq %}
+        {% for subdir in dirs %}
+        <tr>
+            <td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td>
+            <td><a href="{{subdir}}">{{subdir}}</a></td>
+            <td>&nbsp;</td>
+            {% if site.enable_filesize %}<td align="right"> - </td>{% endif %}
+        </tr>
+        {% endfor %}
+        {% for file in files %}
+        <tr>
+            <td valign="top"><img src="/icons/{{ site.data.index_icon_name[file.extname] | default: "unknown" }}.gif" alt="[-]"></td>
+            <td><a href="{{ file.name }}">{{ file.name | truncate: 26, "..&gt;" }}</a></td>
+        <td align="right">{{ file.modified_time | date: "%Y-%m-%d %H:%M" }}</td>
+            {% if site.enable_filesize %}
+            <td align="right">{% assign filesize = file.filesize | default: site.data.filesize[file.path] %}{% include filesize.html param=filesize %}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        <tr><th colspan="{% if site.enable_filesize %}4{% else %}3{% endif %}"><hr /></th></tr>
+    </table>
+</body>
+</html>
