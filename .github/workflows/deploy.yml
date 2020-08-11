@@ -1,0 +1,37 @@
+name: Repository
+
+on:
+  push:
+  schedule:
+    - cron: '9 4 * * 0'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: pip install gitpython
+      - uses: actions/github-script@v2
+        id: release-asset1
+        with:
+          result-encoding: string
+          script: |
+            return await github.repos
+            .getRelease({
+              owner: "Harekaze",
+              repo: "pvr.epgstation",
+              release_id: "latest",
+            })
+            .then(({ data }) => data.assets[0].browser_download_url);
+      - run: curl -Lo pvr.epgstation.zip "${{steps.release-asset1.outputs.result}}"
+      - run: |
+          ./create_repository.py -d root/kodi \
+            https://github.com/Harekaze/docker.harekaze.mirakurun \
+            https://github.com/Harekaze/docker.harekaze.epgstation \
+            ./repository.harekaze2 \
+            ./pvr.epgstation.zip
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./root
+          cname: repo.harekaze.org
