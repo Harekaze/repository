@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<addons><addon id="docker.harekaze.mirakurun" name="mirakurun" provider-name="Harekaze project" version="1.0.0">
+	<requires>
+		<import addon="os.libreelec.tv" version="7.0" />
+		<import addon="service.system.docker" version="0.0.0" />
+	</requires>
+	<extension library="default.py" point="xbmc.service">
+		<provides />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<license>GPL v3.0</license>
+		<summary>mirakurun</summary>
+		<source>https://github.com/Harekaze/docker.harekaze.mirakurun/</source>
+		<website>https://github.com/Harekaze/docker.harekaze.mirakurun/wiki</website>
+		<forum>https://github.com/Harekaze/docker.harekaze.mirakurun/issues</forum>
+		<language>en ja</language>
+		<disclaimer>mirakurun</disclaimer>
+	</extension>
+</addon><addon id="docker.harekaze.epgstation" name="epgstation" provider-name="Harekaze project" version="1.0.0">
+	<requires>
+		<import addon="os.libreelec.tv" version="7.0" />
+		<import addon="service.system.docker" version="0.0.0" />
+		<import addon="tools.ffmpeg-tools" version="0.0.0" />
+	</requires>
+	<extension library="default.py" point="xbmc.service">
+		<provides />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<license>GPL v3.0</license>
+		<summary>epgstation</summary>
+		<source>https://github.com/Harekaze/docker.harekaze.epgstation/</source>
+		<website>https://github.com/Harekaze/docker.harekaze.epgstation/wiki</website>
+		<forum>https://github.com/Harekaze/docker.harekaze.epgstation/issues</forum>
+		<language>en ja</language>
+		<disclaimer>epgstation</disclaimer>
+	</extension>
+</addon><addon id="repository.harekaze2" name="Harekaze2 repository" provider-name="Harekaze2 project" version="2.0.0">
+	<extension name="Harekaze2 add-on repository" point="xbmc.addon.repository">
+		<info compressed="false">https://repo.harekaze.org/kodi/addons.xml</info>
+		<checksum>https://repo.harekaze.org/kodi/addons.xml.md5</checksum>
+		<datadir zip="true">https://repo.harekaze.org/kodi/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Harekaze2 add-ons</summary>
+		<description />
+		<platform>all</platform>
+	</extension>
+</addon><addon id="pvr.epgstation" name="Harekaze (EPGStation PVR client)" provider-name="Harekaze project" version="0.0.7">
+	<requires>
+		<import addon="kodi.binary.instance.pvr" version="5.10.0" />
+		<import addon="kodi.binary.global.main" version="1.0.12" />
+	</requires>
+	<extension library_android="libpvr.epgstation.so" library_ios="pvr.epgstation-ios.dylib" library_linux="pvr.epgstation.so" library_osx="pvr.epgstation.dylib" library_rbpi="pvr.epgstation.armel.so" library_windowsstore="pvr.epgstation.dll" library_windx="pvr.epgstation.dll" point="xbmc.pvrclient" />
+	<extension point="xbmc.addon.metadata">
+		<platform>linux osx ios android rbpi windx</platform>
+		<license>GPL v3.0</license>
+		<summary>EPGStation PVR client</summary>
+		<source>https://github.com/Harekaze/pvr.epgstation/</source>
+		<website>https://github.com/Harekaze/pvr.epgstation/wiki</website>
+		<forum>https://github.com/Harekaze/pvr.epgstation/issues</forum>
+		<language>en ja</language>
+		<disclaimer>EPGStation PVR client for Kodi</disclaimer>
+	</extension>
+</addon></addons>

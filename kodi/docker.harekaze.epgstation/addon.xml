@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="docker.harekaze.epgstation" name="epgstation" version="1.0.0" provider-name="Harekaze project">
+	<requires>
+		<import addon="os.libreelec.tv" version="7.0"/>
+		<import addon="service.system.docker" version="0.0.0"/>
+		<import addon="tools.ffmpeg-tools" version="0.0.0"/>
+	</requires>
+	<extension point="xbmc.service" library="default.py">
+		<provides/>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<license>GPL v3.0</license>
+		<summary>epgstation</summary>
+		<source>https://github.com/Harekaze/docker.harekaze.epgstation/</source>
+		<website>https://github.com/Harekaze/docker.harekaze.epgstation/wiki</website>
+		<forum>https://github.com/Harekaze/docker.harekaze.epgstation/issues</forum>
+		<language>en ja</language>
+		<disclaimer>epgstation</disclaimer>
+	</extension>
+</addon>
