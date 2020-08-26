@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: pip install gitpython
+        with:
+          submodules: recursive
       - uses: actions/github-script@v2
         id: release-asset1
         with:
@@ -26,8 +27,8 @@ jobs:
       - run: curl -Lo pvr.epgstation.zip "${{steps.release-asset1.outputs.result}}"
       - run: |
           ./create_repository.py -d root/kodi \
-            https://github.com/Harekaze/docker.harekaze.mirakurun \
-            https://github.com/Harekaze/docker.harekaze.epgstation \
+            ./docker.harekaze.mirakurun \
+            ./docker.harekaze.epgstation \
             ./repository.harekaze2 \
             ./pvr.epgstation.zip
       - uses: peaceiris/actions-gh-pages@v3
