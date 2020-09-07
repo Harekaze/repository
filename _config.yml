@@ -1,0 +1,20 @@
+title: Harekaze
+description: Harekaze add-on repository
+logo: /kodi/repository.harekaze2/icon.png
+theme: jekyll-theme-minimal
+show_downloads: true
+github:
+    zip_url: https://github.com/Harekaze/repository/releases/download/2.0.0-kodi/repository.harekaze2.zip
+defaults:
+  -
+    scope:
+      path: "404.md"
+    values:
+      layout: "none"
+plugins:
+    - jekyll-seo-tag
+    - jekyll-default-layout
+    - jekyll-optional-front-matter
+    - jekyll-titles-from-headings
+    - jekyll-readme-index
+    - jemoji

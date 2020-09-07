@@ -25,8 +25,9 @@ jobs:
             })
             .then(({ data }) => data.assets[0].browser_download_url);
       - run: curl -Lo pvr.epgstation.zip "${{steps.release-asset1.outputs.result}}"
+      - run: mkdir dist && cp README.md 404.md _config.yml dist
       - run: |
-          ./create_repository.py -d root/kodi \
+          ./create_repository.py -d dist/kodi \
             ./docker.harekaze.mirakurun \
             ./docker.harekaze.epgstation \
             ./repository.harekaze2 \
@@ -34,5 +35,6 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./root
+          publish_dir: ./dist
           cname: repo.harekaze.org
+          enable_jekyll: true
