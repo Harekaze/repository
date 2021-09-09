@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.harekaze2" name="Harekaze2 repository" version="2.0.0" provider-name="Harekaze2 project">
+<addon id="repository.harekaze2" name="Harekaze2 repository" version="3.0.0" provider-name="Harekaze2 project">
 	<extension point="xbmc.addon.repository" name="Harekaze2 add-on repository">
-		<info compressed="false">https://repo.harekaze.org/kodi/addons.xml</info>
-		<checksum>https://repo.harekaze.org/kodi/addons.xml.md5</checksum>
-		<datadir zip="true">https://repo.harekaze.org/kodi/</datadir>
+		<info compressed="false">https://harekaze.github.io/repository/kodi/addons.xml</info>
+		<checksum>https://harekaze.github.io/repository/kodi/addons.xml.md5</checksum>
+		<datadir zip="true">https://harekaze.github.io/repository/kodi/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Harekaze2 add-ons</summary>
