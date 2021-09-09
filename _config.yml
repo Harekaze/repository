@@ -5,7 +5,7 @@ theme: jekyll-theme-minimal
 baseurl: /repository/
 show_downloads: true
 github:
-    zip_url: https://github.com/Harekaze/repository/releases/download/2.0.0-kodi/repository.harekaze2.zip
+    zip_url: https://github.com/Harekaze/repository/releases/download/3.0.0-kodi/repository.harekaze2.zip
 defaults:
   -
     scope:

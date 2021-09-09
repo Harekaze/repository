@@ -4,7 +4,7 @@ This repository provides PVR add-ons for Kodi 18.
 
 ## Repository add-on
 
-[repository.harekaze2.zip](https://github.com/Harekaze/repository/releases/download/2.0.0-kodi/repository.harekaze2.zip)
+[repository.harekaze2.zip](https://github.com/Harekaze/repository/releases/download/3.0.0-kodi/repository.harekaze2.zip)
 
 ## Available add-ons
 
@@ -12,7 +12,7 @@ This repository provides PVR add-ons for Kodi 18.
 | -------------------------- | ------- |
 | docker.harekaze.mirakurun  | 1.0.0   |
 | docker.harekaze.epgstation | 1.0.0   |
-| repository.harekaze2       | 2.0.0   |
+| repository.harekaze2       | 3.0.0   |
 | pvr.epgstation             | 0.0.9   |
 
 
